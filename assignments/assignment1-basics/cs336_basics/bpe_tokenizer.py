@@ -62,27 +62,10 @@ def pretokenize(chunk: str, special_tokens: list[str]) -> dict[str, int]:
     for chunk in text_list:
         find_words = re.findall(pattern, chunk)
         for word in find_words:
-            # word = word.strip()
             pre_tokens[word] = 1 + pre_tokens.get(word, 0)
     return pre_tokens
 
-
-def find_all_occurrences(main_str, sub_str):
-    indexes = []
-    start = 0 
-    sub_len = len(sub_str)
-    main_len = len(main_str)
     
-    if sub_len == 0 or sub_len > main_len:
-        return indexes
-    
-    while True:
-        pos = main_str.find(sub_str, start)
-        if pos == -1:  
-            break
-        indexes.append(pos)
-        start = pos + 1
-    return indexes       
 
 def train_bpe_tokenizer(
     input_path: str,
@@ -218,5 +201,3 @@ def train_bpe_tokenizer(
 
     return vocab, merges
   
-
-
