@@ -87,4 +87,3 @@ class BPE_Tokenizer:
                 raise ValueError(f"Token ID {idx} not in vocabulary.")
         result = result.decode('utf-8', errors='replace')
         return result
-
